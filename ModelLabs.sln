@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIMParser", "CIMParser\CIMParser.csproj", "{3C03A41C-BE4C-40A8-97D5-5DBAC0C34102}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIMProfileCreator", "CIMProfileCreator\CIMProfileCreator.csproj", "{05FA2F21-D4DE-4F42-8D8F-AC79993394F6}"
@@ -31,6 +33,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMSTestClient", "NetworkModelService\Test\NMSTestClient\NMSTestClient.csproj", "{32EE9373-A350-42AC-972B-41B2EDABA082}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkModelServiceSelfHost", "NetworkModelService\ServiceHost\NetworkModelServiceSelfHost\NetworkModelServiceSelfHost.csproj", "{E112FFCC-BD88-4056-99E1-0991A0E82588}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectDLL", "ProjectDLL", "{A7B5C517-8B83-41F8-B93D-F951F1C6917D}"
+	ProjectSection(SolutionItems) = preProject
+		bin64\DLL\ProjectDllCIMProfile_Labs.dll = bin64\DLL\ProjectDllCIMProfile_Labs.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,7 +137,10 @@ Global
 		{CD0EE85F-3877-4725-9A29-968A33156D3D} = {ABC630A2-50D2-4DF5-B4FF-C6E1FABE530E}
 		{2630D180-1B68-4E84-AEAC-42EE8C88B50F} = {ABC630A2-50D2-4DF5-B4FF-C6E1FABE530E}
 		{ADE96497-7C11-40B6-AE82-57F956C9F104} = {ABC630A2-50D2-4DF5-B4FF-C6E1FABE530E}
-		{E112FFCC-BD88-4056-99E1-0991A0E82588} = {ABC630A2-50D2-4DF5-B4FF-C6E1FABE530E}
 		{32EE9373-A350-42AC-972B-41B2EDABA082} = {CD0EE85F-3877-4725-9A29-968A33156D3D}
+		{E112FFCC-BD88-4056-99E1-0991A0E82588} = {ABC630A2-50D2-4DF5-B4FF-C6E1FABE530E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E7B30F5-2A86-4DF4-8C46-DDF59DE77BD1}
 	EndGlobalSection
 EndGlobal
