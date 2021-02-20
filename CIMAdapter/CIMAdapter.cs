@@ -115,6 +115,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter
 
 		private bool DoTransformAndLoad(Assembly assembly, ConcreteModel concreteModel, SupportedProfiles extractType, out Delta nmsDelta, out string log)
 		{
+			//TODO
 			nmsDelta = null;
 			log = string.Empty;
 			bool success = false;
@@ -143,6 +144,10 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter
 
 							break;
 						}
+					case SupportedProfiles.Document:
+                        {
+							break;
+                        }
 					default:
 						{
 							LogManager.Log(string.Format("Import of {0} data is NOT SUPPORTED.", extractType), LogLevel.Warning);
