@@ -193,6 +193,27 @@ namespace FTN.Common
 			SetValue(dateTime);
 		}
 
+		public Property(ModelCode id, ElectronicAddress address)
+		{
+			this.id = id;
+			this.value = new PropertyValue();
+			SetValue(address);
+		}
+
+		public Property(ModelCode id, Duration duration)
+		{
+			this.id = id;
+			this.value = new PropertyValue();
+			SetValue(duration);
+		}
+
+		public Property(ModelCode id, Status status)
+		{
+			this.id = id;
+			this.value = new PropertyValue();
+			SetValue(status);
+		}
+
 		public Property(ModelCode id, TimeSpan timeSpan)
 		{
 			this.id = id;
@@ -665,7 +686,52 @@ namespace FTN.Common
 				throw new Exception(errorMessage);
 			}
 		}
-	
+
+		public void SetValue(Duration duration)
+		{
+			PropertyType type = this.Type;
+			if (type == PropertyType.TimeSpan)
+			{
+				value.StringValue = duration.ID;
+			}
+			else
+			{
+				string errorMessage = String.Format("Failed to set value for property ({0}) because specified value ({1}) is not compatible with property type ({2}).", this.id, duration.ToString(), type);
+				CommonTrace.WriteTrace(CommonTrace.TraceError, errorMessage);
+				throw new Exception(errorMessage);
+			}
+		}
+
+		public void SetValue(Status status)
+		{
+			PropertyType type = this.Type;
+			if (type == PropertyType.TimeSpan)
+			{
+				value.StringValue = status.ID;
+			}
+			else
+			{
+				string errorMessage = String.Format("Failed to set value for property ({0}) because specified value ({1}) is not compatible with property type ({2}).", this.id, status.ToString(), type);
+				CommonTrace.WriteTrace(CommonTrace.TraceError, errorMessage);
+				throw new Exception(errorMessage);
+			}
+		}
+
+		public void SetValue(ElectronicAddress address)
+		{
+			PropertyType type = this.Type;
+			if (type == PropertyType.TimeSpan)
+			{
+				value.StringValue = address.ID;
+			}
+			else
+			{
+				string errorMessage = String.Format("Failed to set value for property ({0}) because specified value ({1}) is not compatible with property type ({2}).", this.id, address.ToString(), type);
+				CommonTrace.WriteTrace(CommonTrace.TraceError, errorMessage);
+				throw new Exception(errorMessage);
+			}
+		}
+
 		public void SetValue(List<bool> boolValues)
 		{
 			PropertyType type = this.Type;
