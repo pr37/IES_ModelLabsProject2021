@@ -1003,7 +1003,9 @@ namespace FTN.Common
 				CommonTrace.WriteTrace(CommonTrace.TraceError, errorMessage);
 				throw new Exception(errorMessage);
 			}
-		}	
+		}
+
+		
 
 		public List<long> AsLongs()
 		{
