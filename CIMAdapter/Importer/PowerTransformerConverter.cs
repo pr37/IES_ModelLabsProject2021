@@ -8,7 +8,7 @@
 	/// </summary>
 	public static class PowerTransformerConverter
 	{
-
+		/*
 		#region Populate ResourceDescription
 		public static void PopulateIdentifiedObjectProperties(FTN.IdentifiedObject cimIdentifiedObject, ResourceDescription rd)
 		{
@@ -326,6 +326,6 @@
 					return WindingConnection.Y;
 			}
 		}
-		#endregion Enums convert
-	}
+		#endregion Enums convert */
+	} 
 }

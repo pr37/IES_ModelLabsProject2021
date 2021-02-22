@@ -84,12 +84,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Document.cs" />
     <Compile Include="Core\BaseVoltage .cs" />
     <Compile Include="Core\ConductingEquipment.cs" />
     <Compile Include="Core\Equipment.cs" />
     <Compile Include="Core\Location.cs" />
     <Compile Include="Core\IdentifiedObject.cs" />
     <Compile Include="Core\PowerSystemResource.cs" />
+    <Compile Include="MarketManagement\MarketDocument.cs" />
+    <Compile Include="MarketManagement\MeasurmentPoint.cs" />
+    <Compile Include="MarketManagement\Period.cs" />
+    <Compile Include="MarketManagement\Point.cs" />
+    <Compile Include="MarketManagement\Process.cs" />
+    <Compile Include="MarketManagement\TimeSeries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wires\ACLineSegment.cs" />
     <Compile Include="Wires\Conductor.cs" />

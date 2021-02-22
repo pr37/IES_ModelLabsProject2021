@@ -127,7 +127,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter
 				{
 					case SupportedProfiles.PowerTransformer:
 						{
-							// transformation to DMS delta					
+							/*// transformation to DMS delta					
 							TransformAndLoadReport report = PowerTransformerImporter.Instance.CreateNMSDelta(concreteModel);
 
 							if (report.Success)
@@ -140,14 +140,43 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter
 								success = false;
 							}
 							log = report.Report.ToString();
-							PowerTransformerImporter.Instance.Reset();
+							PowerTransformerImporter.Instance.Reset(); */
+
+							TransformAndLoadReport report = DocumentImporter.Instance.CreateNMSDelta(concreteModel);
+
+							if (report.Success)
+							{
+								nmsDelta = DocumentImporter.Instance.NMSDelta;
+								success = true;
+							}
+							else
+							{
+								success = false;
+							}
+							log = report.Report.ToString();
+							DocumentImporter.Instance.Reset();
 
 							break;
 						}
 					case SupportedProfiles.Document:
                         {
+							// transformation to DMS delta					
+							TransformAndLoadReport report = DocumentImporter.Instance.CreateNMSDelta(concreteModel);
+
+							if (report.Success)
+							{
+								nmsDelta = DocumentImporter.Instance.NMSDelta;
+								success = true;
+							}
+							else
+							{
+								success = false;
+							}
+							log = report.Report.ToString();
+							DocumentImporter.Instance.Reset();
+
 							break;
-                        }
+						}
 					default:
 						{
 							LogManager.Log(string.Format("Import of {0} data is NOT SUPPORTED.", extractType), LogLevel.Warning);

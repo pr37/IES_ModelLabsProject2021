@@ -865,23 +865,29 @@ namespace FTN.Common
 		# region Initialization of metadata
 		// OVDE URADITI ZAD
 		private void InitializeTypeIdsInInsertOrder()
-		{			
-			typeIdsInInsertOrder.Add(ModelCode.BASEVOLTAGE);
-			typeIdsInInsertOrder.Add(ModelCode.LOCATION);
-			typeIdsInInsertOrder.Add(ModelCode.POWERTR);
-			typeIdsInInsertOrder.Add(ModelCode.POWERTRWINDING);
-			typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);
-			typeIdsInInsertOrder.Add(ModelCode.CONDUCTOR);
-			typeIdsInInsertOrder.Add(ModelCode.ACLS);
+		{           //TODO
+					//typeIdsInInsertOrder.Add(ModelCode.BASEVOLTAGE);
+					//typeIdsInInsertOrder.Add(ModelCode.LOCATION);
+					//typeIdsInInsertOrder.Add(ModelCode.POWERTR);
+					//typeIdsInInsertOrder.Add(ModelCode.POWERTRWINDING);
+					//typeIdsInInsertOrder.Add(ModelCode.WINDINGTEST);
+					//typeIdsInInsertOrder.Add(ModelCode.CONDUCTOR);
+					//typeIdsInInsertOrder.Add(ModelCode.ACLS);
+			typeIdsInInsertOrder.Add(ModelCode.MEASURMENTPOINT);
+			typeIdsInInsertOrder.Add(ModelCode.PROCESS);
+			typeIdsInInsertOrder.Add(ModelCode.PERIOD);
+			typeIdsInInsertOrder.Add(ModelCode.POINT);
+			typeIdsInInsertOrder.Add(ModelCode.TIMESERIES);
+			typeIdsInInsertOrder.Add(ModelCode.MEASURMENTPOINT);
 		}
 
 		private void InitializeNotSettablePropertyIds()
-		{			
-			notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
-			notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);
-			notSettablePropertyIds.Add(ModelCode.LOCATION_PSRS);
-			notSettablePropertyIds.Add(ModelCode.POWERTRWINDING_TESTS);
-            notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);	
+		{		//TODO	
+			//notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
+			//notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);
+			//notSettablePropertyIds.Add(ModelCode.LOCATION_PSRS);
+			//notSettablePropertyIds.Add(ModelCode.POWERTRWINDING_TESTS);
+            //notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);	
 		}
 	
 		# endregion Initialization of metadata

@@ -39,6 +39,10 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Manager
 		/// <returns>name of profile + "CIMProfile_Labs.DLL"</returns>
 		public static string GetProfileDLLName(SupportedProfiles profile)
 		{
+			if (profile == SupportedProfiles.Document)
+            {
+				return "ProjectDllCIMProfile_Labs.DLL";
+			}
 			return string.Format("{0}CIMProfile_Labs.DLL", profile.ToString());
 		}
 

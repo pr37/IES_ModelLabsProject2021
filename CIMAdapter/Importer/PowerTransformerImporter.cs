@@ -10,7 +10,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
 	/// PowerTransformerImporter
 	/// </summary>
 	public class PowerTransformerImporter
-	{
+	{ /*
 		/// <summary> Singleton </summary>
 		private static PowerTransformerImporter ptImporter = null;
 		private static object singletoneLock = new object();
@@ -297,7 +297,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
 			}
 			return rd;
 		}
-		#endregion Import
+		#endregion Import */
 	}
 }
 

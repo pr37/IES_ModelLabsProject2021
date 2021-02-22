@@ -639,6 +639,7 @@ namespace FTN.Common
 				xmlWriter.WriteValue(this.InsertOperations.Count);
 				for (int i = 0; i < this.InsertOperations.Count; i++)
 				{
+					
 					this.InsertOperations[i].ExportToXml(xmlWriter);
 				}
 
@@ -656,6 +657,7 @@ namespace FTN.Common
 				xmlWriter.WriteValue(this.UpdateOperations.Count);
 				for (int i = 0; i < this.UpdateOperations.Count; i++)
 				{
+					
 					this.UpdateOperations[i].ExportToXml(xmlWriter);
 				}
 
@@ -673,6 +675,7 @@ namespace FTN.Common
 				xmlWriter.WriteValue(this.DeleteOperations.Count);
 				for (int i = 0; i < this.DeleteOperations.Count; i++)
 				{
+					
 					this.DeleteOperations[i].ExportToXml(xmlWriter);
 				}
 

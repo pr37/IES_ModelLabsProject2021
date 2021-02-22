@@ -1,0 +1,16 @@
+﻿<delta id="0">
+  <operations>
+    <operation type="insert">
+      <ResourceDescriptions count="1">
+        <ResourceDescription>
+          <id gid="0x00000002ffffffff" type="PROCESS" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="PR_12500" />
+            <Property id="PROCESS_CLASSIFICATIONTYPE" value="Tip1" />
+            <Property id="PROCESS_PROCESSTYPE" value="Tip2" />
+          </Properties>
+        </ResourceDescription>
+      </ResourceDescriptions>
+    </operation>
+  </operations>
+</delta>
