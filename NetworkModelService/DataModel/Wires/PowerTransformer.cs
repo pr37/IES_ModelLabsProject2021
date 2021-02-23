@@ -12,7 +12,7 @@ using FTN.Services.NetworkModelService.DataModel.Core;
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
 	public class PowerTransformer : Equipment
-	{
+	{ /*
 		private bool autotransformer = false;
 
 		private TransformerFunction function;
@@ -179,6 +179,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 			}
 		}		
 	
-		#endregion IReference implementation
+		#endregion IReference implementation */
 	}
 }

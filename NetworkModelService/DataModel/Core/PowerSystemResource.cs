@@ -10,8 +10,8 @@ using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Core
 {
-	public class PowerSystemResource : IdentifiedObject
-	{
+	public class PowerSystemResource //: IdentifiedObject
+	{/*
 		private long location = 0;
 		private string customType = string.Empty;		
 		
@@ -130,6 +130,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			base.GetReferences(references, refType);			
 		}
 
-		#endregion IReference implementation		
+		#endregion IReference implementation		*/
 	}
 }

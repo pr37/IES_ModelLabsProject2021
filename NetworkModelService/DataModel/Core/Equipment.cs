@@ -9,8 +9,8 @@ using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Core
 {
-	public class Equipment : PowerSystemResource
-	{		
+	public class Equipment //: PowerSystemResource
+	{		/*
 		private bool isUnderground;
 		private bool isPrivate;
 						
@@ -114,6 +114,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			}
 		}		
 
-		#endregion IAccess implementation
+		#endregion IAccess implementation */
 	}
 }

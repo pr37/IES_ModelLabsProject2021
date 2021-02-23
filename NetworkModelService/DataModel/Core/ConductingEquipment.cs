@@ -9,8 +9,8 @@ using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Core
 {
-	public class ConductingEquipment : Equipment
-	{		
+	public class ConductingEquipment //: Equipment
+	{		/*
 		private PhaseCode phases;
 		private float ratedVoltage;
 		private long baseVoltage = 0;
@@ -137,6 +137,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			base.GetReferences(references, refType);
 		}
 
-		#endregion IReference implementation
+		#endregion IReference implementation */
 	}
 }

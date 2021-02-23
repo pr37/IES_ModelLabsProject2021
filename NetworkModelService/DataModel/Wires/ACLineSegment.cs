@@ -6,8 +6,8 @@ using System.Text;
 
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
-    public class ACLineSegment : Conductor
-    {
+    public class ACLineSegment //: Conductor
+    {/*
         public ACLineSegment(long globalId) : base(globalId)
         {
         }
@@ -84,6 +84,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
                     base.SetProperty(property);
                     break;
             }
-        }
+        } */
     }
 }

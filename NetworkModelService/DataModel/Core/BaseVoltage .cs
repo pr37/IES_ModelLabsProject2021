@@ -9,8 +9,8 @@ using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Core
 {	
-	public class BaseVoltage : IdentifiedObject
-	{
+	public class BaseVoltage //: IdentifiedObject
+	{/*
 		private float nominalVoltage;
 
 		private List<long> conductingEquipments = new List<long>();			
@@ -165,6 +165,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			}
 		}
 	
-		#endregion IReference implementation	
+		#endregion IReference implementation */	
 	}
 }

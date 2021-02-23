@@ -11,7 +11,7 @@ using FTN.Services.NetworkModelService.DataModel.Core;
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
 	public class WindingTest : IdentifiedObject
-	{						
+	{	/*					
 		private float leakageImpedance;		
 		private float loadLoss;
 		private float noLoadLoss;
@@ -275,6 +275,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 			base.GetReferences(references, refType);
 		}	
 
-		#endregion IReference implementation
+		#endregion IReference implementation */
 	}
 }

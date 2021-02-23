@@ -7,8 +7,8 @@ using System.Text;
 
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
-    public class Conductor : ConductingEquipment
-    {
+    public class Conductor //: ConductingEquipment
+    { /*
         public Conductor(long globalId) : base(globalId)
         {
         }
@@ -85,6 +85,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
                     break;
             }
         }
-
+        */
     }
 }
