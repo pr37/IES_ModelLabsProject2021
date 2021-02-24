@@ -20,7 +20,7 @@ namespace FTN.Services.NetworkModelService
 		/// <summary>
 		/// The dictionary of entities. Key = GlobaId, Value = Entity
 		/// </summary>		
-		private Dictionary<long, IdentifiedObject> entities = new Dictionary<long, IdentifiedObject>();	
+		private Dictionary<long, DataModel.Core.IdentifiedObject> entities = new Dictionary<long, DataModel.Core.IdentifiedObject>();	
 
 		/// <summary>
 		/// Initializes a new instance of the Container class
@@ -32,7 +32,7 @@ namespace FTN.Services.NetworkModelService
 		/// <summary>
 		/// Gets or sets dictionary of entities (identified objects) inside container.
 		/// </summary>	
-		public Dictionary<long, IdentifiedObject> Entities
+		public Dictionary<long, DataModel.Core.IdentifiedObject> Entities
 		{
 			get { return entities; }
 			set { entities = value; }
@@ -74,9 +74,9 @@ namespace FTN.Services.NetworkModelService
 					return false;
 				}
 
-				IdentifiedObject io = null;
+				DataModel.Core.IdentifiedObject io = null;
 
-				foreach (KeyValuePair<long, IdentifiedObject> pair in x.Entities)
+				foreach (KeyValuePair<long, DataModel.Core.IdentifiedObject> pair in x.Entities)
 				{
 					//if (!y.objects.ContainsKey(pair.Key))
 					if (y.Entities.TryGetValue(pair.Key, out io))
@@ -115,29 +115,32 @@ namespace FTN.Services.NetworkModelService
 		/// </summary>
 		/// <param name="globalId">Global id of the entity for insert</param>		
 		/// <returns>Created entity (identified object).</returns>
-		public IdentifiedObject CreateEntity(long globalId)
+		public DataModel.Core.IdentifiedObject CreateEntity(long globalId)
 		{
 			short type = ModelCodeHelper.ExtractTypeFromGlobalId(globalId);
 
-			IdentifiedObject io = null;			
+			DataModel.Core.IdentifiedObject io = null;			
 			switch ((DMSType)type)
 			{
-				case DMSType.BASEVOLTAGE:
-					io = new BaseVoltage(globalId);
+				case DMSType.MEASURMENTPOINT:
+					io = new DataModel.MarketManagement.MeasurmentPoint(globalId);
 					break;
 
-				case DMSType.LOCATION:
-					io = new Location(globalId);
+				case DMSType.MARKETDOCUMENT:
+					io = new DataModel.MarketManagement.MarketDocument(globalId);
 					break;
-				case DMSType.POWERTR:
-					io = new PowerTransformer(globalId);
+				case DMSType.PERIOD:
+					io = new DataModel.MarketManagement.Period(globalId);
 					break;
-				case DMSType.POWERTRWINDING:
-					io = new TransformerWinding(globalId);
+				case DMSType.POINT:
+					io = new DataModel.MarketManagement.Point(globalId);
 					break;
-				case DMSType.WINDINGTEST:
-					io = new WindingTest(globalId);
-					break;			
+				case DMSType.PROCESS:
+					io = new DataModel.MarketManagement.Process(globalId);
+					break;
+				case DMSType.TIMESERIES:
+					io = new DataModel.MarketManagement.TimeSeries(globalId);
+					break;
 
 				default:					
 					string message = String.Format("Failed to create entity because specified type ({0}) is not supported.", type);
@@ -166,7 +169,7 @@ namespace FTN.Services.NetworkModelService
 		/// </summary>
 		/// <param name="index">Index of the entity that should be returned</param>
 		/// <returns>Instance of the entity in case it is found on specified position, otherwise throws exception</returns>
-		public IdentifiedObject GetEntity(long globalId)
+		public DataModel.Core.IdentifiedObject GetEntity(long globalId)
 		{
 			if (EntityExists(globalId))
 			{
@@ -185,7 +188,7 @@ namespace FTN.Services.NetworkModelService
 		/// </summary>
 		/// <param name="io">Entity (identified object) that should be added</param>
 		/// <returns>Index of the entity that is just added.</returns>
-		public void AddEntity(IdentifiedObject io)
+		public void AddEntity(DataModel.Core.IdentifiedObject io)
 		{
 			if (!EntityExists(io.GlobalId))
 			{
@@ -204,9 +207,9 @@ namespace FTN.Services.NetworkModelService
 		/// </summary>
 		/// <param name="index">Index of the entity that should be removed</param>
 		/// <returns>Returns entity that is removed</returns>
-		public IdentifiedObject RemoveEntity(long globalId)
+		public DataModel.Core.IdentifiedObject RemoveEntity(long globalId)
 		{
-			IdentifiedObject io = null;
+			DataModel.Core.IdentifiedObject io = null;
 			if (EntityExists(globalId))
 			{
 				entities.Remove(globalId);
