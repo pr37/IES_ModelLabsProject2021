@@ -53,12 +53,12 @@ namespace FTN.Services.NetworkModelService
 		    return false;
 		}
 
-		public IdentifiedObject GetEntity(long globalId)
+		public DataModel.Core.IdentifiedObject GetEntity(long globalId)
 		{
 			if (EntityExists(globalId))
 			{
 				DMSType type = (DMSType)ModelCodeHelper.ExtractTypeFromGlobalId(globalId);
-				IdentifiedObject io = GetContainer(type).GetEntity(globalId);
+				DataModel.Core.IdentifiedObject io = GetContainer(type).GetEntity(globalId);
 
 				return io;
 			}
@@ -120,7 +120,7 @@ namespace FTN.Services.NetworkModelService
 
 			try
 			{
-				IdentifiedObject io = GetEntity(globalId);
+				DataModel.Core.IdentifiedObject io = GetEntity(globalId);
 
 				ResourceDescription rd = new ResourceDescription(globalId);
 
@@ -248,6 +248,12 @@ namespace FTN.Services.NetworkModelService
 				foreach (ResourceDescription rd in delta.InsertOperations)
 				{
 					InsertEntity(rd);
+                    Console.WriteLine(rd.Id);
+                    foreach( var prop in rd.Properties)
+                    {
+                        Console.WriteLine(prop.Id.ToString() + " " + prop.PropertyValue.StringValue);
+                    }
+                    Console.WriteLine(rd.ContainsProperty(ModelCode.PROCESS_CLASSIFICATIONTYPE));
 				}
 
 				foreach (ResourceDescription rd in delta.UpdateOperations)
@@ -330,7 +336,7 @@ namespace FTN.Services.NetworkModelService
 				}
 
 				// create entity and add it to container
-				IdentifiedObject io = container.CreateEntity(globalId);
+				DataModel.Core.IdentifiedObject io = container.CreateEntity(globalId);
 
 				// apply properties on created entity
 				if (rd.Properties != null)
@@ -358,7 +364,7 @@ namespace FTN.Services.NetworkModelService
 								}
 
 								// get referenced entity for update
-								IdentifiedObject targetEntity = GetEntity(targetGlobalId);
+								DataModel.Core.IdentifiedObject targetEntity = GetEntity(targetGlobalId);
 								targetEntity.AddReference(property.Id, io.GlobalId);
 
 								io.SetProperty(property);									
@@ -406,7 +412,7 @@ namespace FTN.Services.NetworkModelService
 						throw new Exception(message);
 					}
 
-					IdentifiedObject io = GetEntity(globalId);					
+				DataModel.Core.IdentifiedObject io = GetEntity(globalId);					
 
 					// updating properties of entity
 					foreach (Property property in rd.Properties)
@@ -417,7 +423,7 @@ namespace FTN.Services.NetworkModelService
                             
                             if (oldTargetGlobalId != 0)
                             {
-                                IdentifiedObject oldTargetEntity = GetEntity(oldTargetGlobalId);
+							DataModel.Core.IdentifiedObject oldTargetEntity = GetEntity(oldTargetGlobalId);
                                 oldTargetEntity.RemoveReference(property.Id, globalId);
                             }
 
@@ -432,7 +438,7 @@ namespace FTN.Services.NetworkModelService
 									throw new Exception(message);
 								}
 
-                                IdentifiedObject targetEntity = GetEntity(targetGlobalId);
+							DataModel.Core.IdentifiedObject targetEntity = GetEntity(targetGlobalId);
                                 targetEntity.AddReference(property.Id, globalId);
 							}
 
@@ -483,7 +489,7 @@ namespace FTN.Services.NetworkModelService
 				}
 
 				// get entity to be deleted
-				IdentifiedObject io = GetEntity(globalId);
+				DataModel.Core.IdentifiedObject io = GetEntity(globalId);
 
 				// check if entity could be deleted (if it is not referenced by any other entity)
 				if (io.IsReferenced)
@@ -527,7 +533,7 @@ namespace FTN.Services.NetworkModelService
 							if (targetGlobalId != 0)
 							{
 								// get target entity
-								IdentifiedObject targetEntity = GetEntity(targetGlobalId);
+								DataModel.Core.IdentifiedObject targetEntity = GetEntity(targetGlobalId);
 
 								// remove reference to another entity
 								targetEntity.RemoveReference(propertyId, globalId);
@@ -566,7 +572,7 @@ namespace FTN.Services.NetworkModelService
 				association = new Association();
 			}
 
-			IdentifiedObject io = GetEntity(source);
+			DataModel.Core.IdentifiedObject io = GetEntity(source);
 
 			if (!io.HasProperty(association.PropertyId))
 			{

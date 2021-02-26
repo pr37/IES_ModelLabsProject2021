@@ -164,7 +164,7 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 			try
 			{						
 				List<ModelCode> properties = new List<ModelCode>();
-                properties.Add(ModelCode.IDOBJ_DESCRIPTION);
+                properties.Add(ModelCode.IDOBJ_ALIASNAME);
                 properties.Add(ModelCode.IDOBJ_MRID);
                 properties.Add(ModelCode.IDOBJ_NAME);
 						
@@ -586,9 +586,13 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 
             #region Set references
 
-            SetPowerTransformerReferences(updates);
-            SetTransformerWindingReferences(updates);
-            SetWindingTestRefernces(updates);
+            SetMarketDocumentReferences(updates);
+            SetMeasurmentPointRefernces(updates);
+            SetPeriodRefernces(updates);
+            SetPointRefernces(updates);
+            SetProcessRefernces(updates);
+            SetTimeSeriesReferences(updates);
+            
 
             #endregion Set references
 
@@ -696,9 +700,12 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 
             #region Set references
 
-            SetPowerTransformerReferences(updates);
-            SetTransformerWindingReferences(updates);
-            SetWindingTestRefernces(updates);
+            SetMarketDocumentReferences(updates);
+            SetMeasurmentPointRefernces(updates);
+            SetPeriodRefernces(updates);
+            SetPointRefernces(updates);
+            SetProcessRefernces(updates);
+            SetTimeSeriesReferences(updates);
 
             #endregion Set references
 
@@ -707,45 +714,79 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 
         #region set references
 
-        private void SetPowerTransformerReferences(Dictionary<DMSType, ResourceDescription> updates)
+        private void SetMarketDocumentReferences(Dictionary<DMSType, ResourceDescription> updates)
         {
-            for (int i = 0; i < updates[DMSType.POWERTR].Properties.Count; i++)
+            for (int i = 0; i < updates[DMSType.MARKETDOCUMENT].Properties.Count; i++)
             {
-                if (updates[DMSType.POWERTR].Properties[i].Id == ModelCode.PSR_LOCATION)
+                if (updates[DMSType.MARKETDOCUMENT].Properties[i].Id == ModelCode.MARKETDOCUMENT_PROCESS)
                 {
-                    updates[DMSType.POWERTR].Properties[i].SetValue(updates[DMSType.LOCATION].Id);
+                    updates[DMSType.MARKETDOCUMENT].Properties[i].SetValue(updates[DMSType.PROCESS].Id);
                 }
             }
         }
 
-        private void SetTransformerWindingReferences(Dictionary<DMSType, ResourceDescription> updates)
+        private void SetTimeSeriesReferences(Dictionary<DMSType, ResourceDescription> updates)
         {
-            for (int i = 0; i < updates[DMSType.POWERTRWINDING].Properties.Count; i++)
+            for (int i = 0; i < updates[DMSType.TIMESERIES].Properties.Count; i++)
             {
-                if (updates[DMSType.POWERTRWINDING].Properties[i].Id == ModelCode.CONDEQ_BASVOLTAGE)
+                if (updates[DMSType.TIMESERIES].Properties[i].Id == ModelCode.TIMESERIES_MARKETDOCUMENT)
                 {
-                    updates[DMSType.POWERTRWINDING].Properties[i].SetValue(updates[DMSType.BASEVOLTAGE].Id);
+                    updates[DMSType.TIMESERIES].Properties[i].SetValue(updates[DMSType.MARKETDOCUMENT].Id);
                 }
 
-                if (updates[DMSType.POWERTRWINDING].Properties[i].Id == ModelCode.PSR_LOCATION)
+                if (updates[DMSType.TIMESERIES].Properties[i].Id == ModelCode.MARKETDOCUMENT_PROCESS)
                 {
-                    updates[DMSType.POWERTRWINDING].Properties[i].SetValue(updates[DMSType.LOCATION].Id);
+                    updates[DMSType.TIMESERIES].Properties[i].SetValue(updates[DMSType.PROCESS].Id);
                 }
 
-                if (updates[DMSType.POWERTRWINDING].Properties[i].Id == ModelCode.POWERTRWINDING_POWERTRW)
+                if (updates[DMSType.TIMESERIES].Properties[i].Id == ModelCode.TIMESERIES_PERIOD)
                 {
-                    updates[DMSType.POWERTRWINDING].Properties[i].SetValue(updates[DMSType.POWERTR].Id);
+                    updates[DMSType.TIMESERIES].Properties[i].SetValue(updates[DMSType.PERIOD].Id);
                 }
             }
         }
 
-        private void SetWindingTestRefernces(Dictionary<DMSType, ResourceDescription> updates)
+        private void SetMeasurmentPointRefernces(Dictionary<DMSType, ResourceDescription> updates)
         {
-            for (int i = 0; i < updates[DMSType.WINDINGTEST].Properties.Count; i++)
+            for (int i = 0; i < updates[DMSType.MEASURMENTPOINT].Properties.Count; i++)
             {
-                if (updates[DMSType.WINDINGTEST].Properties[i].Id == ModelCode.WINDINGTEST_POWERTRWINDING)
+                if (updates[DMSType.MEASURMENTPOINT].Properties[i].Id == ModelCode.MEASURMENTPOINT_TIMESERIES)
                 {
-                    updates[DMSType.WINDINGTEST].Properties[i].SetValue(updates[DMSType.POWERTRWINDING].Id);
+                    updates[DMSType.MEASURMENTPOINT].Properties[i].SetValue(updates[DMSType.TIMESERIES].Id);
+                }
+            }
+        }
+
+        private void SetProcessRefernces(Dictionary<DMSType, ResourceDescription> updates)
+        {
+            for (int i = 0; i < updates[DMSType.PROCESS].Properties.Count; i++)
+            {
+                if (updates[DMSType.PROCESS].Properties[i].Id == ModelCode.MEASURMENTPOINT_TIMESERIES)
+                {
+                    //nema ref
+                   // updates[DMSType.PROCESS].Properties[i].SetValue(updates[DMSType.TIMESERIES].Id);
+                }
+            }
+        }
+
+        private void SetPeriodRefernces(Dictionary<DMSType, ResourceDescription> updates)
+        {
+            for (int i = 0; i < updates[DMSType.PERIOD].Properties.Count; i++)
+            {
+                if (updates[DMSType.PERIOD].Properties[i].Id == ModelCode.PERIOD_MARKETDOCUMENT)
+                {
+                     updates[DMSType.PERIOD].Properties[i].SetValue(updates[DMSType.MARKETDOCUMENT].Id);
+                }
+            }
+        }
+
+        private void SetPointRefernces(Dictionary<DMSType, ResourceDescription> updates)
+        {
+            for (int i = 0; i < updates[DMSType.POINT].Properties.Count; i++)
+            {
+                if (updates[DMSType.POINT].Properties[i].Id == ModelCode.POINT_PERIOD)
+                {
+                    updates[DMSType.POINT].Properties[i].SetValue(updates[DMSType.PERIOD].Id);
                 }
             }
         }
